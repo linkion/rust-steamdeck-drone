@@ -4,12 +4,6 @@ use gilrs::{Gilrs, Button, Event};
 #[derive(serde::Deserialize, serde::Serialize)]
 #[serde(default)] // if we add new fields, give them default values when deserializing old state
 pub struct TemplateApp {
-    // Example stuff:
-    label: String,
-
-    // this how you opt-out of serialization of a member
-    #[serde(skip)]
-    value: f32,
     #[serde(skip)]
     gilrs: Gilrs,
 }
@@ -17,9 +11,6 @@ pub struct TemplateApp {
 impl Default for TemplateApp {
     fn default() -> Self {
         Self {
-            // Example stuff:
-            label: "Hello World!".to_owned(),
-            value: 2.7,
             gilrs: Gilrs::new().unwrap(),
         }
     }
@@ -50,7 +41,7 @@ impl eframe::App for TemplateApp {
     /// Called each time the UI needs repainting, which may be many times per second.
     /// Put your widgets into a `SidePanel`, `TopPanel`, `CentralPanel`, `Window` or `Area`.
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        let Self { label, value, gilrs } = self;
+        let Self { gilrs } = self;
 
         // Examples of how to create different panels and windows.
         // Pick whichever suits you.
@@ -80,7 +71,7 @@ impl eframe::App for TemplateApp {
             }
 
             let mut active_gamepad = None;
-            
+
             // Examine new events
             while let Some(Event { id, event, time }) = gilrs.next_event() {
                 ui.label(format!("{:?} New event from {}: {:?}", time, id, event));
