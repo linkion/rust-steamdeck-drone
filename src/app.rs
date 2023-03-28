@@ -71,9 +71,12 @@ impl eframe::App for TemplateApp {
 
         egui::CentralPanel::default().show(ctx, |ui| {
             // The central panel the region left after adding TopPanel's and SidePanel's
-
+            ui.label("sanity check");
             for (_id, gamepad) in gilrs.gamepads() {
                 ui.label(format!("{} is {:?}", gamepad.name(), gamepad.power_info()));
+            }
+            for (_id, gamepad) in gilrs.gamepads() {
+                println!("{} is {:?}", gamepad.name(), gamepad.power_info());
             }
 
             let mut active_gamepad = None;
