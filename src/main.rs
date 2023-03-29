@@ -11,7 +11,7 @@ fn main() -> eframe::Result<()> {
     eframe::run_native(
         "steamdeck_drone_controller",
         native_options,
-        Box::new(|cc| Box::new(steamdeck_drone_controller::dronectrl_app::new(cc))),
+        Box::new(|cc| Box::new(steamdeck_drone_controller::DronectrlApp::new(cc))),
     )
 }
 
@@ -30,7 +30,7 @@ fn main() {
         eframe::start_web(
             "the_canvas_id", // hardcode it
             web_options,
-            Box::new(|cc| Box::new(steamdeck_drone_controller::dronectrl_app::new(cc))),
+            Box::new(|cc| Box::new(steamdeck_drone_controller::DronectrlApp::new(cc))),
         )
         .await
         .expect("failed to start eframe");

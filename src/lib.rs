@@ -1,4 +1,4 @@
 #![warn(clippy::all, rust_2018_idioms)]
 
 mod app;
-pub use app::dronectrl_app;
+pub use app::DronectrlApp;
