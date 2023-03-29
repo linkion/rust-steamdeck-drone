@@ -2,8 +2,8 @@ var cacheName = 'egui-template-pwa';
 var filesToCache = [
   './',
   './index.html',
-  './SteamdeckDroneController.js',
-  './SteamdeckDroneController.wasm',
+  './steamdeck_drone_controller.js',
+  './steamdeck_drone_controller.wasm',
 ];
 
 /* Start the service worker and cache all of the app's content */

@@ -1,5 +1,5 @@
 [package]
-name = "SteamdeckDroneController"
+name = "steamdeck_drone_controller"
 version = "0.1.0"
 authors = ["Patrick Orave <oravep@gmail.com>"]
 edition = "2021"

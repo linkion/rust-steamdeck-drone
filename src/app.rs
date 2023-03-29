@@ -3,12 +3,12 @@ use gilrs::{Gilrs, Button, Event};
 /// We derive Deserialize/Serialize so we can persist app state on shutdown.
 #[derive(serde::Deserialize, serde::Serialize)]
 #[serde(default)] // if we add new fields, give them default values when deserializing old state
-pub struct SteamdeckDroneApp {
+pub struct dronectrl_app {
     #[serde(skip)]
     gilrs: Gilrs,
 }
 
-impl Default for SteamdeckDroneApp {
+impl Default for dronectrl_app {
     fn default() -> Self {
         Self {
             gilrs: Gilrs::new().unwrap(),
@@ -16,7 +16,7 @@ impl Default for SteamdeckDroneApp {
     }
 }
 
-impl SteamdeckDroneApp {
+impl dronectrl_app {
     /// Called once before the first frame.
     pub fn new(cc: &eframe::CreationContext<'_>) -> Self {
         // This is also where you can customize the look and feel of egui using
@@ -32,7 +32,7 @@ impl SteamdeckDroneApp {
     }
 }
 
-impl eframe::App for SteamdeckDroneApp {
+impl eframe::App for dronectrl_app {
     /// Called by the frame work to save state before shutdown.
     fn save(&mut self, storage: &mut dyn eframe::Storage) {
         eframe::set_value(storage, eframe::APP_KEY, self);
